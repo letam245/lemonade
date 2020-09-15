@@ -249,6 +249,9 @@
                                                         <color key="value" red="0.96908146139999995" green="0.9304730296" blue="0.33706724640000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="openBranchGuidelineModal:" destination="QSJ-3Y-kOK" eventType="touchUpInside" id="hfx-Yu-Dd9"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -310,7 +313,7 @@
         <!--Guideline Modal View Controller-->
         <scene sceneID="jbU-xd-dF4">
             <objects>
-                <viewController storyboardIdentifier="guideLineModalVC" id="vGK-y9-BX7" customClass="GuidelineModalViewController" customModule="lemondadeTV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="guideLineModalVC" modalPresentationStyle="overCurrentContext" id="vGK-y9-BX7" customClass="GuidelineModalViewController" customModule="lemondadeTV" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gSg-mh-9Xf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -340,6 +343,9 @@
                                                                 <state key="normal" image="xmark" catalog="system">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="dismissModal:" destination="vGK-y9-BX7" eventType="touchUpInside" id="YNq-9L-nxx"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -361,7 +367,7 @@
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DF6-zA-xPV">
                                                         <rect key="frame" x="16" y="74" width="288" height="93.5"/>
-                                                        <string key="text">Adhere to all applicable laws and abide by all Brand policies.Maintain current account information.\nNever misrepresent yourself.\nAlways act in a manner that ensures a trustworthy experience for this brand's customers.</string>
+                                                        <string key="text">Adhere to all applicable laws and abide by all Brand policies.Maintain current account information. Never misrepresent yourself. Always act in a manner that ensures a trustworthy experience for this brand's customers.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -372,7 +378,7 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJr-rC-fhM" customClass="CustomDesignableTextView" customModule="lemondadeTV" customModuleProvider="target">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJr-rC-fhM">
                                                         <rect key="frame" x="16" y="203.5" width="288" height="33"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -416,6 +422,9 @@
                                                         <color key="value" red="0.96908146139999995" green="0.9304730296" blue="0.33706724640000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="applyForBrand:" destination="vGK-y9-BX7" eventType="touchUpInside" id="6on-9b-zFS"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -442,14 +451,20 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="sZV-5L-9WB" firstAttribute="bottom" secondItem="dt7-x1-Kgg" secondAttribute="bottom" id="KCM-H1-Hlf"/>
                             <constraint firstItem="sZV-5L-9WB" firstAttribute="trailing" secondItem="dt7-x1-Kgg" secondAttribute="trailing" id="NJ2-7E-A2L"/>
+                            <constraint firstItem="dt7-x1-Kgg" firstAttribute="top" secondItem="gSg-mh-9Xf" secondAttribute="top" constant="80" id="Vyd-Ud-Dpd"/>
                             <constraint firstItem="eGk-28-0mz" firstAttribute="width" secondItem="gSg-mh-9Xf" secondAttribute="width" id="dbj-eD-3TT"/>
                             <constraint firstItem="dt7-x1-Kgg" firstAttribute="leading" secondItem="sZV-5L-9WB" secondAttribute="leading" id="eaT-Bp-DSP"/>
-                            <constraint firstItem="dt7-x1-Kgg" firstAttribute="top" secondItem="sZV-5L-9WB" secondAttribute="top" constant="80" id="oBy-6p-dgk"/>
+                            <constraint firstAttribute="bottom" secondItem="dt7-x1-Kgg" secondAttribute="bottom" id="sRN-dU-rst"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sZV-5L-9WB"/>
                     </view>
+                    <connections>
+                        <outlet property="brandName" destination="uDx-gz-cAR" id="tNP-jd-Gvt"/>
+                        <outlet property="commentText" destination="rJr-rC-fhM" id="LQm-D4-huR"/>
+                        <outlet property="guidelineText" destination="DF6-zA-xPV" id="hwC-gf-cCp"/>
+                        <outlet property="modalTopContraints" destination="Vyd-Ud-Dpd" id="uKf-yB-HUy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wCa-oC-tBV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

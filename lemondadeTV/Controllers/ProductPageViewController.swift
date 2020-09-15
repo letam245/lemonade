@@ -19,11 +19,19 @@ class ProductPageViewController: UIViewController {
     @IBOutlet weak var productListTableView: UITableView!
     
     var selectBrand : Brand?
+    var productList = [Product]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateBrandInfo()
-        self.navigationController?.navigationBar.backItem?.title = ""
+        productListTableView.delegate = self
+        productListTableView.dataSource = self
+        productListTableView.register(UINib(nibName: "ProductCell", bundle: nil), forCellReuseIdentifier: "ProductCell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        fetchProducts()
     }
     
     func updateBrandInfo() {
@@ -34,5 +42,44 @@ class ProductPageViewController: UIViewController {
         averageComission.text = selectBrand?.CommissionRange
         connectionCount.text = "\(selectBrand?.SellerCount ?? 0)"
     }
+    
+    func fetchProducts() {
+        do {
+            let products = try JSONDecoder().decode([Product].self, from: ProductMockData)
+            productList = products
+            productListTableView.reloadData()
+        } catch {
+            print(error)
+        }
+    }
+    
+    func presentGuidelineModal() {
+        let guideLineModal = storyboard?.instantiateViewController(withIdentifier: "guideLineModalVC") as! GuidelineModalViewController
+        
+        guideLineModal.productDelegate = self
+        guideLineModal.brand = selectBrand
+        present(guideLineModal, animated: true, completion: nil)
+    }
+    
+    @IBAction func openBranchGuidelineModal(_ sender: Any) {
+        self.presentGuidelineModal()
+    }
+    
+}
 
+extension ProductPageViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        productList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let productCell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductCell
+        productCell.selectionStyle = .none
+        let product = productList[indexPath.row]
+
+        productCell.updateProductDetail(photo: product.picture?.url, name: product.name, price: product.price, commision: selectBrand?.CommissionRange ?? "")
+        
+        return productCell
+    }
+    
 }

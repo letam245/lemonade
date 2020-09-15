@@ -7,119 +7,10 @@
 //
 
 import Foundation
-struct ProductData: Decodable {
-    var pictures : [Picture]
-    var productTypeId:  Int
-    var parentGroupedProductId: Int
-    var visibleIndividually : Bool
+struct Product: Decodable {
+    var picture: Picture?
+    var price: Double
     var name : String
-    var shortDescription: String
-    var fullDescription: String
-    var adminComment: String?
-    var productTemplateId: Int
-    var vendorId: Int
-    var vendorName: String
-    var vendorPicturUrl: String?
-    var vendorModel: String?
-    var showOnHomePage: Bool
-    var metaKeywords: String?
-    var metaDescription: String?
-    var metaTitle: String?
-    var allowCustomerReviews: Bool
-    var approvedRatingSum: Int
-    var notApprovedRatingSum: Int
-    var approvedTotalReviews: Int
-    var notApprovedTotalReviews: Int
-    var subjectToAcl: Bool
-    var limitedToStores: Bool
-    var sku: String
-    var manufacturerPartNumber: Int?
-    var gtin: String?
-    var isGiftCard: Bool
-    var giftCardTypeId: Int
-    var overriddenGiftCardAmount: Int
-    var requireOtherProducts:Bool
-    var requiredProductIds: Int?
-    var automaticallyAddRequiredProducts: Bool
-    var isDownload:Bool
-    var downloadId: Int
-    var unlimitedDownloads: Bool
-    var maxNumberOfDownloads: Int
-    var downloadExpirationDays: String
-    var downloadActivationTypeId: Int
-    var hasSampleDownload: Bool
-    var sampleDownloadId: Int
-    var hasUserAgreement: Bool
-    var userAgreementText: String
-    var isRecurring:Bool
-    var recurringCycleLength: Int
-    var recurringCyclePeriodId: Int
-    var recurringTotalCycles:Bool
-    var isRental:Bool
-    var rentalPriceLength: Int
-    var rentalPricePeriodId: Int
-    var isShipEnabled:Bool
-    var isFreeShipping:Bool
-    var shipSeparately:Bool
-    var additionalShippingCharge: Float?
-    var deliveryDateId: Int
-    var isTaxExempt:Bool
-    var taxCategoryId: Int
-    var isTelecommunicationsOrBroadcastingOrElectronicServices:Bool
-    var manageInventoryMethodId: Int
-    var productAvailabilityRangeId: Int
-    var useMultipleWarehouses:Bool
-    var warehouseId: Int
-    var stockQuantity: Int
-    var displayStockAvailability:Bool
-    var displayStockQuantity:Bool
-    var minStockQuantity: Int
-    var lowStockActivityId: Int
-    var notifyAdminForQuantityBelow: Int
-    var backorderModeId: Int
-    var allowBackInStockSubscriptions:Bool
-    var orderMinimumQuantity: Int
-    var orderMaximumQuantity: Int
-    var allowedQuantities: Int?
-    var allowAddingOnlyExistingAttributeCombinations:Bool
-    var notReturnable:Bool
-    var disableBuyButton:Bool
-    var disableWishlistButton:Bool
-    var availableForPreOrder:Bool
-    var preOrderAvailabilityStartDateTimeUtc: String?
-    var callForPrice:Bool
-    var price: Float
-    var oldPrice: Float
-    var productCost: Float
-    var customerEntersPrice:Bool
-    var minimumCustomerEnteredPrice: Float
-    var maximumCustomerEnteredPrice: Float
-    var basepriceEnabled:Bool
-    var basepriceAmount: Float
-    var basepriceUnitId:Int
-    var basepriceBaseAmount: Float
-    var basepriceBaseUnitId:Int
-    var markAsNew: Bool
-    var markAsNewStartDateTimeUtc: String?
-    var markAsNewEndDateTimeUtc: String?
-    var hasTierPrices:Bool
-    var hasDiscountsApplied: Bool
-    var weight: Float
-    var length: Float
-    var width: Float
-    var height: Float
-    var availableStartDateTimeUtc: String?
-    var availableEndDateTimeUtc: String?
-    var displayOrder: Int
-    var published: Bool
-    var deleted: Bool
-    var createdOnUtc: String?
-    var updatedOnUtc: String?
-    var categoryId: Int
-    var categoryName: String?
-    var manufacturerId: Int
-    var commissionPercentage: Float
-    var commissionFlatValue: Float
     var id: Int
 }
 
@@ -135,7 +26,6 @@ struct Picture: Decodable {
     var isNew: Bool
     var binaryData: Data?
 }
-
 
 let ProductMockData = """
 [{
@@ -158,7 +48,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "Kissable Lips Package",
-    "shortDescription": "<h1>Kissable Lips</h1>\n\n<p>$665.00 (Regularly $750.00!)</p>\n\n<p>&nbsp;</p>\n\n<ul>\n\t<li>\n\t<p>1ml syringe of Juvederm Ultra Plus XC</p>\n\t</li>\n\t<li>\n\t<p>Botox Lip Flip</p>\n\t</li>\n\t<li>\n\t<p>1 Envy product of choice</p>\n\t</li>\n</ul>\n",
+    "shortDescription": "<h1>Kissable Lips</h1><p>$665.00 (Regularly $750.00!)</p><p>&nbsp;</p><ul><li><p>1ml syringe of Juvederm Ultra Plus XC</p></li><li><p>Botox Lip Flip</p></li><li><p>1 Envy product of choice</p></li></ul>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -286,7 +176,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "Eyes are Windows to the Soul",
-    "shortDescription": "<p>$1,100&nbsp;(Regularly $1,291.95.00)</p>\n\n<p>INCLUDES:&nbsp;</p>\n\n<p>- 1mL Juvederm product (appropriate filler to be determined upon consultation)</p>\n\n<p>- 12 Units of Botox around the eyes for crows feet</p>\n\n<p>- Skin Medica TNS Eye Repair cream</p>\n\n<p>- California Cosmetics anti-aging sleep mask</p>\n\n<p>- 1 pair of ENVY Cosmetics Lashes&nbsp;</p>\n\n<p>Under-eyes will be filled with either Juvederm Volbella XC (lasts up to 1 yr) or Juvederm Vollure XC (lasts up to 18 months) Injector will determine the proper filler for you during your in-depth consultation.</p>\n\n<p>&nbsp;</p>\n\n<p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p>\n\n<p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p>\n\n<p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p>\n\n<p>If no services are rendered, your funds will be returned.&nbsp;</p>\n",
+    "shortDescription": "<p>$1,100&nbsp;(Regularly $1,291.95.00)</p><p>INCLUDES:&nbsp;</p><p>- 1mL Juvederm product (appropriate filler to be determined upon consultation)</p><p>- 12 Units of Botox around the eyes for crows feet</p><p>- Skin Medica TNS Eye Repair cream</p><p>- California Cosmetics anti-aging sleep mask</p><p>- 1 pair of ENVY Cosmetics Lashes&nbsp;</p><p>Under-eyes will be filled with either Juvederm Volbella XC (lasts up to 1 yr) or Juvederm Vollure XC (lasts up to 18 months) Injector will determine the proper filler for you during your in-depth consultation.</p><p>&nbsp;</p><p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p><p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p><p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p><p>If no services are rendered, your funds will be returned.&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -414,7 +304,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "Jawline On Point",
-    "shortDescription": "<p>$2,600.00</p>\n\n<p>&nbsp;</p>\n\n<ul>\n\t<li>\n\t<p>2 treatments of Kybella (4 vials) get the third one free</p>\n\t</li>\n</ul>\n\n<p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p>\n\n<p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p>\n\n<p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p>\n\n<p>If no services are rendered, your funds will be returned.&nbsp;</p>\n",
+    "shortDescription": "<p>$2,600.00</p><p>&nbsp;</p><ul><li><p>2 treatments of Kybella (4 vials) get the third one free</p></li></ul><p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p><p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p><p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p><p>If no services are rendered, your funds will be returned.&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -542,7 +432,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "Lip Augmentation + FREE Pair of Mink Eyelashes!",
-    "shortDescription": "<p>MDL SPECIAL! GET ONE FREE PAIR OF LASHES WITH PURCHASE OF LIP AUGMENTATION ON THIS EPISODE!&nbsp;</p>\n\n<p>1ml of Juvederm Ultra Plus XC&nbsp;</p>\n\n<p>Lasts up to one year&nbsp;</p>\n\n<p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p>\n\n<p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p>\n\n<p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p>\n\n<p>If no services are rendered, your funds will be returned.&nbsp;</p>\n",
+    "shortDescription": "<p>MDL SPECIAL! GET ONE FREE PAIR OF LASHES WITH PURCHASE OF LIP AUGMENTATION ON THIS EPISODE!&nbsp;</p><p>1ml of Juvederm Ultra Plus XC&nbsp;</p><p>Lasts up to one year&nbsp;</p><p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p><p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p><p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p><p>If no services are rendered, your funds will be returned.&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -670,7 +560,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "Non-Surgical Nose Job",
-    "shortDescription": "<p>Dr. Barczak is known all over the world for this amazing procedure!&nbsp;</p>\n\n<p>1ml of Juvederm Voluma XC, two sessions with Dr. B&nbsp;</p>\n\n<p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p>\n\n<p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p>\n\n<p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p>\n\n<p>If no services are rendered, your funds will be returned.&nbsp;</p>\n",
+    "shortDescription": "<p>Dr. Barczak is known all over the world for this amazing procedure!&nbsp;</p><p>1ml of Juvederm Voluma XC, two sessions with Dr. B&nbsp;</p><p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p><p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p><p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p><p>If no services are rendered, your funds will be returned.&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -798,7 +688,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "Botox (40 Units)",
-    "shortDescription": "<p>40 units of botox ($11/per unit)&nbsp;</p>\n\n<p>(Excludes Dr. B)</p>\n\n<p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p>\n\n<p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p>\n\n<p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p>\n\n<p>If no services are rendered, your funds will be returned.&nbsp;</p>\n",
+    "shortDescription": "<p>40 units of botox ($11/per unit)&nbsp;</p><p>(Excludes Dr. B)</p><p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p><p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p><p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p><p>If no services are rendered, your funds will be returned.&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -926,7 +816,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "Hydrafacial MD Treatment",
-    "shortDescription": "<p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p>\n\n<p>The amount of $199.00 is in consideration for a HydraFacial MD treatment.&nbsp;</p>\n\n<p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended.&nbsp;</p>\n\n<p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<p>If no services are rendered, funds will be returned.&nbsp;</p>\n",
+    "shortDescription": "<p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p><p>The amount of $199.00 is in consideration for a HydraFacial MD treatment.&nbsp;</p><p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended.&nbsp;</p><p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p><p>&nbsp;</p><p>If no services are rendered, funds will be returned.&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -1054,7 +944,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "Buy TWO Lashes, get ONE free pair! style: SAN DIEGO",
-    "shortDescription": "<p>Buy TWO pair of San Diego lashes at regular price and we will send you a third pair, FREE!</p>\n\n<p>Handmade, cruelty free mink lashes&nbsp;</p>\n\n<p>The most luxurious lashes!</p>\n\n<p>Can be worn up to 20 times!&nbsp;</p>\n",
+    "shortDescription": "<p>Buy TWO pair of San Diego lashes at regular price and we will send you a third pair, FREE!</p><p>Handmade, cruelty free mink lashes&nbsp;</p><p>The most luxurious lashes!</p><p>Can be worn up to 20 times!&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -1182,7 +1072,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "HYDRAFACIAL Monthly Membership",
-    "shortDescription": "<p>Today&#39;s purchase will include the first month&#39;s payment. A team member from our call enter will contact you in order to confirm your monthly membership and schedule your automatic payments.&nbsp;</p>\n\n<ul>\n\t<li>\n\t<p>Locked in at $149 rate for 12 months</p>\n\t</li>\n\t<li>\n\t<p>One HydraFacial per month</p>\n\t</li>\n\t<li>\n\t<p>One Free Booster during your birthday month</p>\n\t</li>\n\t<li>\n\t<p>One Free Booster in December for the holidays</p>\n\t</li>\n\t<li>\n\t<p>20% off all purchased SkinMedica products day of treatment</p>\n\t</li>\n\t<li>\n\t<p>Cannot be combined with any other offers</p>\n\t</li>\n</ul>\n\n<p>More information can be found on our website CaliforniaCosmetics.com</p>\n",
+    "shortDescription": "<p>Today&#39;s purchase will include the first month&#39;s payment. A team member from our call enter will contact you in order to confirm your monthly membership and schedule your automatic payments.&nbsp;</p><ul><li><p>Locked in at $149 rate for 12 months</p></li><li><p>One HydraFacial per month</p></li><li><p>One Free Booster during your birthday month</p></li><li><p>One Free Booster in December for the holidays</p></li><li><p>20% off all purchased SkinMedica products day of treatment</p></li><li><p>Cannot be combined with any other offers</p></li></ul><p>More information can be found on our website CaliforniaCosmetics.com</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -1310,7 +1200,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "BOTOX Membership",
-    "shortDescription": "<p>Includes:&nbsp;</p>\n\n<ul>\n\t<li>\n\t<p>Four treatments per year</p>\n\t</li>\n\t<li>\n\t<p>Up to 44 units per treatment</p>\n\t</li>\n\t<li>\n\t<p>$100 off two syringes of Juvederm Dermal Filler on your second visit.</p>\n\t</li>\n</ul>\n\n<p>Today&#39;s purchase will be for your first payment of your membership, and then someone from our call center will be contacting you to confirm your membership and schedule your automatic payments.&nbsp;</p>\n",
+    "shortDescription": "<p>Includes:&nbsp;</p><ul><li><p>Four treatments per year</p></li><li><p>Up to 44 units per treatment</p></li><li><p>$100 off two syringes of Juvederm Dermal Filler on your second visit.</p></li></ul><p>Today&#39;s purchase will be for your first payment of your membership, and then someone from our call center will be contacting you to confirm your membership and schedule your automatic payments.&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -1438,7 +1328,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "SKIN GOALS Membership",
-    "shortDescription": "<p>Includes:</p>\n\n<ul>\n\t<li>First Visit: PRP (Platelet Rich Plasma), Hydrafacial MD, SkinMedica Glow on the Go Kit, and SkinMedica TNS Recovery Complex</li>\n\t<li>Second Visit: PRP and IPL or PEARL Laser Treatment (will be determined based on your skin type)&nbsp;</li>\n\t<li>Third Visit: PRP &amp; Hydrafacial MD treatment&nbsp;</li>\n\t<li>Fourth Visit: PRP with PRP Injections and Hydrafacial MD</li>\n</ul>\n\n<p>Today&#39;s purchase will cover the downpayment for this membership. One of our team members will contact you to confirm your membership and schedule your remaining automatic payments. More information can be found on CaliforniaCosmetics.com</p>\n\n<p>&nbsp;</p>\n",
+    "shortDescription": "<p>Includes:</p><ul><li>First Visit: PRP (Platelet Rich Plasma), Hydrafacial MD, SkinMedica Glow on the Go Kit, and SkinMedica TNS Recovery Complex</li><li>Second Visit: PRP and IPL or PEARL Laser Treatment (will be determined based on your skin type)&nbsp;</li><li>Third Visit: PRP &amp; Hydrafacial MD treatment&nbsp;</li><li>Fourth Visit: PRP with PRP Injections and Hydrafacial MD</li></ul><p>Today&#39;s purchase will cover the downpayment for this membership. One of our team members will contact you to confirm your membership and schedule your remaining automatic payments. More information can be found on CaliforniaCosmetics.com</p><p>&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -1566,7 +1456,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "EYELASHES [Los Angeles 2D] ",
-    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 2D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>\n",
+    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 2D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -1694,7 +1584,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "EYELASHES [Los Angeles 3D]",
-    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 3D&nbsp;Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>\n",
+    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 3D&nbsp;Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -1822,7 +1712,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "EYELASHES [Malibu]",
-    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 4D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>\n",
+    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 4D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -1950,7 +1840,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "EYELASHES [Santa Monica]",
-    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 3D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>\n",
+    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 3D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -2078,7 +1968,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "EYELASHES [Laguna Beach]",
-    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 2D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>\n",
+    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 2D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -2206,7 +2096,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "EYELASHES [Napa]",
-    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 3D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>\n",
+    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 3D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -2334,7 +2224,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "EYELASHES [West Hollywood] ",
-    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 4D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>\n",
+    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 4D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -2462,7 +2352,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "EYELASHES [Newport Beach]",
-    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 2D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>\n",
+    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 2D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -2590,7 +2480,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "EYELASHES [San Diego]",
-    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 3D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>\n",
+    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 3D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -2718,7 +2608,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "EYELASHES [Las Vegas]",
-    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 4D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>\n",
+    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 4D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -2846,7 +2736,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "EYELASHES [Corona Del Mar]",
-    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 4D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>\n",
+    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 4D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -2974,7 +2864,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "EYELASHES [Venice Beach] ",
-    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 4D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>\n",
+    "shortDescription": "<p>Genuine Mink Hair. Handmade. Cruelty Free. 4D Luxury Quality. Our signature lashes are handmade with excellent durability. Can be worn up to 20 times!&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -3102,7 +2992,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "iluvsarahii  SPECIAL PACKAGE MDL Exclusive!",
-    "shortDescription": "<p>This package price ONLY available on MyDailyLive!&nbsp;</p>\n\n<p><strong>SPECIAL PACKAGE - @iluvsarahii Treatment! </strong></p>\n\n<p><strong>Available with Dr. Barczak only! Special Low Price!&nbsp;</strong></p>\n\n<p><em>Includes:&nbsp;</em></p>\n\n<p>Cheek Augmentation, Chin Augmentation, Smile Lines, Botox Treatment (including full face, masseter reduction, nefertiti and platysmal bands)&nbsp;</p>\n\n<p><em>Products Used: </em></p>\n\n<p><em>3ml Juvederm Voluma XC (lasts up to two years)</em></p>\n\n<p><em>1ml Juvederm Vollure XC (lasts up to 18 months)</em></p>\n\n<p><em>120 Units Botox&nbsp;</em></p>\n\n<p><em>Regular retail price of these treatments: $5134.00&nbsp;</em></p>\n\n<p><em>Special MDL Price: $3999.00</em></p>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<p><em>UPON PURCHASE, PLEASE CALL (855)977-1982 TO SCHEDULE YOUR APPOINTMENT!!&nbsp;</em></p>\n\n<p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p>\n\n<p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p>\n\n<p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p>\n\n<p>If no services are rendered, your funds will be returned.&nbsp;</p>\n",
+    "shortDescription": "<p>This package price ONLY available on MyDailyLive!&nbsp;</p><p><strong>SPECIAL PACKAGE - @iluvsarahii Treatment! </strong></p><p><strong>Available with Dr. Barczak only! Special Low Price!&nbsp;</strong></p><p><em>Includes:&nbsp;</em></p><p>Cheek Augmentation, Chin Augmentation, Smile Lines, Botox Treatment (including full face, masseter reduction, nefertiti and platysmal bands)&nbsp;</p><p><em>Products Used: </em></p><p><em>3ml Juvederm Voluma XC (lasts up to two years)</em></p><p><em>1ml Juvederm Vollure XC (lasts up to 18 months)</em></p><p><em>120 Units Botox&nbsp;</em></p><p><em>Regular retail price of these treatments: $5134.00&nbsp;</em></p><p><em>Special MDL Price: $3999.00</em></p><p>&nbsp;</p><p>&nbsp;</p><p><em>UPON PURCHASE, PLEASE CALL (855)977-1982 TO SCHEDULE YOUR APPOINTMENT!!&nbsp;</em></p><p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p><p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p><p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p><p>If no services are rendered, your funds will be returned.&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -3219,7 +3109,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "BLACK FRIDAY SPECIAL - ULTRA PLUS XC (1mL)",
-    "shortDescription": "<p>BLACK FRIDAY 2019 SPECIAL!!&nbsp;</p>\n\n<p>All injectors are included in this service.&nbsp;</p>\n\n<p>Buy ANY 1 syringe of filler and receive a complimentary Botox treatment for any (1) of the following areas:&nbsp;</p>\n\n<ul>\n\t<li>Lip Flip</li>\n\t<li>Brow Lift</li>\n\t<li>Bunny Lines</li>\n\t<li>Chin-ulite</li>\n</ul>\n\n<p>Buy ANY 2&nbsp;syringes of filler, and receive a coplimentary Botox treatment for any (2) of the following areas:&nbsp;</p>\n\n<ul>\n\t<li>Lip Flip</li>\n\t<li>Brow Lift</li>\n\t<li>Bunny Lines</li>\n\t<li>Chin-ulite</li>\n\t<li>(Additional gift with purchase - California Cosmetics insulated coffee mug)&nbsp;</li>\n</ul>\n\n<p>Buy ANY 3 syringes, get 1 FREE syringe and Botox Treatment for any (1) of the following areas:&nbsp;</p>\n\n<ul>\n\t<li>Lip Flip</li>\n\t<li>Brow Lift</li>\n\t<li>Bunny Lines</li>\n\t<li>Chin-ulite</li>\n\t<li>(Additional gift with purchase - California Cosmetics insulated coffee mug)</li>\n</ul>\n\n<p>PRODUCT PRICE IS FOR ONE SYRINGE ONLY. Please increase the quantity of syringes in your order to redeem an offer that includes multiple syringes.&nbsp;</p>\n\n<p>Available only while supplies last!&nbsp;</p>\n\n<p>Once you have received confirmation of your purchase, please allow 24 hours before calling to schedule your appointment. 855-977-1982&nbsp;</p>\n",
+    "shortDescription": "<p>BLACK FRIDAY 2019 SPECIAL!!&nbsp;</p><p>All injectors are included in this service.&nbsp;</p><p>Buy ANY 1 syringe of filler and receive a complimentary Botox treatment for any (1) of the following areas:&nbsp;</p><ul><li>Lip Flip</li><li>Brow Lift</li><li>Bunny Lines</li><li>Chin-ulite</li></ul><p>Buy ANY 2&nbsp;syringes of filler, and receive a coplimentary Botox treatment for any (2) of the following areas:&nbsp;</p><ul><li>Lip Flip</li><li>Brow Lift</li><li>Bunny Lines</li><li>Chin-ulite</li><li>(Additional gift with purchase - California Cosmetics insulated coffee mug)&nbsp;</li></ul><p>Buy ANY 3 syringes, get 1 FREE syringe and Botox Treatment for any (1) of the following areas:&nbsp;</p><ul><li>Lip Flip</li><li>Brow Lift</li><li>Bunny Lines</li><li>Chin-ulite</li><li>(Additional gift with purchase - California Cosmetics insulated coffee mug)</li></ul><p>PRODUCT PRICE IS FOR ONE SYRINGE ONLY. Please increase the quantity of syringes in your order to redeem an offer that includes multiple syringes.&nbsp;</p><p>Available only while supplies last!&nbsp;</p><p>Once you have received confirmation of your purchase, please allow 24 hours before calling to schedule your appointment. 855-977-1982&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -3347,7 +3237,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "Buy ANY 3 syringes, get 1 FREE syringe + Botox ",
-    "shortDescription": "<p>BLACK FRIDAY 2019 SPECIAL!!&nbsp;</p>\n\n<p>All injectors are included in this service.&nbsp;</p>\n\n<p>Buy ANY 3 syringes, get 1 FREE syringe and Botox Treatment for any (1) of the following areas:&nbsp;</p>\n\n<ul>\n\t<li>Lip Flip</li>\n\t<li>Brow Lift</li>\n\t<li>Bunny Lines</li>\n\t<li>Chin-ulite</li>\n\t<li>(Additional gift with purchase - California Cosmetics insulated coffee mug)</li>\n</ul>\n\n<p>= $799 total in savings! Up to a value of $699 of free filler plus $100 botox value!&nbsp;</p>\n\n<p>Available only while supplies last!&nbsp;</p>\n\n<p>Once you have received confirmation of your purchase, please allow 24 hours before calling to schedule your appointment. 855-977-1982&nbsp;</p>\n",
+    "shortDescription": "<p>BLACK FRIDAY 2019 SPECIAL!!&nbsp;</p><p>All injectors are included in this service.&nbsp;</p><p>Buy ANY 3 syringes, get 1 FREE syringe and Botox Treatment for any (1) of the following areas:&nbsp;</p><ul><li>Lip Flip</li><li>Brow Lift</li><li>Bunny Lines</li><li>Chin-ulite</li><li>(Additional gift with purchase - California Cosmetics insulated coffee mug)</li></ul><p>= $799 total in savings! Up to a value of $699 of free filler plus $100 botox value!&nbsp;</p><p>Available only while supplies last!&nbsp;</p><p>Once you have received confirmation of your purchase, please allow 24 hours before calling to schedule your appointment. 855-977-1982&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -3475,7 +3365,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "Buy ANY 2 syringes, get 2 FREE Botox treatments ",
-    "shortDescription": "<p>BLACK FRIDAY 2019 SPECIAL!!&nbsp;</p>\n\n<p>All injectors are included in this service.&nbsp;</p>\n\n<p>Buy ANY 2&nbsp;syringes of filler, and receive a coplimentary Botox treatment for any (2) of the following areas:&nbsp;</p>\n\n<ul>\n\t<li>Lip Flip</li>\n\t<li>Brow Lift</li>\n\t<li>Bunny Lines</li>\n\t<li>Chin-ulite</li>\n\t<li>(Additional gift with purchase - California Cosmetics insulated coffee mug)&nbsp;</li>\n</ul>\n\n<p>= $300 in savings! ($50 off each syringe + $200 Botox value)</p>\n\n<p>Available only while supplies last!&nbsp;</p>\n\n<p>Once you have received confirmation of your purchase, please allow 24 hours before calling to schedule your appointment. 855-977-1982&nbsp;</p>\n",
+    "shortDescription": "<p>BLACK FRIDAY 2019 SPECIAL!!&nbsp;</p><p>All injectors are included in this service.&nbsp;</p><p>Buy ANY 2&nbsp;syringes of filler, and receive a coplimentary Botox treatment for any (2) of the following areas:&nbsp;</p><ul><li>Lip Flip</li><li>Brow Lift</li><li>Bunny Lines</li><li>Chin-ulite</li><li>(Additional gift with purchase - California Cosmetics insulated coffee mug)&nbsp;</li></ul><p>= $300 in savings! ($50 off each syringe + $200 Botox value)</p><p>Available only while supplies last!&nbsp;</p><p>Once you have received confirmation of your purchase, please allow 24 hours before calling to schedule your appointment. 855-977-1982&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -3603,7 +3493,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "Buy ANY 1 syringe, get FREE Botox treatment!",
-    "shortDescription": "<p>BLACK FRIDAY 2019 SPECIAL!!&nbsp;</p>\n\n<p>All injectors are included in this service.&nbsp;</p>\n\n<p>Buy ANY 1 syringe of filler and receive a complimentary Botox treatment for any (1) of the following areas:&nbsp;</p>\n\n<ul>\n\t<li>Lip Flip</li>\n\t<li>Brow Lift</li>\n\t<li>Bunny Lines</li>\n\t<li>Chin-ulite</li>\n</ul>\n\n<p>= $125 in savings! (Save $25 off the syringe + $100 Botox treatment value)&nbsp;</p>\n\n<p>Available only while supplies last!&nbsp;</p>\n\n<p>Once you have received confirmation of your purchase, please allow 24 hours before calling to schedule your appointment. 855-977-1982&nbsp;</p>\n",
+    "shortDescription": "<p>BLACK FRIDAY 2019 SPECIAL!!&nbsp;</p><p>All injectors are included in this service.&nbsp;</p><p>Buy ANY 1 syringe of filler and receive a complimentary Botox treatment for any (1) of the following areas:&nbsp;</p><ul><li>Lip Flip</li><li>Brow Lift</li><li>Bunny Lines</li><li>Chin-ulite</li></ul><p>= $125 in savings! (Save $25 off the syringe + $100 Botox treatment value)&nbsp;</p><p>Available only while supplies last!&nbsp;</p><p>Once you have received confirmation of your purchase, please allow 24 hours before calling to schedule your appointment. 855-977-1982&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -3731,7 +3621,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "BOTOX - Black Friday Special ",
-    "shortDescription": "<p>BLACK FRIDAY 2019 SPECIAL!&nbsp;<br />\n<br />\nBuy 40 units of botox for $400&nbsp; (regular price $440-$552)&nbsp;</p>\n\n<p>Buy 60 units of botox for $600 (regular price $660 - 780)</p>\n\n<ul>\n\t<li>BONUS FREE GIFT - 1 pair of Envy Cosmetics eyelashes - pick up at time of appointment&nbsp;</li>\n</ul>\n",
+    "shortDescription": "<p>BLACK FRIDAY 2019 SPECIAL!&nbsp;<br /><br />Buy 40 units of botox for $400&nbsp; (regular price $440-$552)&nbsp;</p><p>Buy 60 units of botox for $600 (regular price $660 - 780)</p><ul><li>BONUS FREE GIFT - 1 pair of Envy Cosmetics eyelashes - pick up at time of appointment&nbsp;</li></ul>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -3859,7 +3749,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "BOTOX - Black Friday Special! ",
-    "shortDescription": "<p>60 Units of Botox for $600&nbsp;</p>\n\n<p>(Regular price $660 - $752)</p>\n",
+    "shortDescription": "<p>60 Units of Botox for $600&nbsp;</p><p>(Regular price $660 - $752)</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -3987,7 +3877,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "Women's Botox Package w/ Dr B",
-    "shortDescription": "<p>MDL Members save on Botox with Dr. B!! Special Offer at $12/per unit!&nbsp;</p>\n\n<p>Our Botox package for women includes a recommended dosage of 40 units.&nbsp;<br />\n<br />\nDr. B&#39;s normal price for botox is $13 per unit!&nbsp;</p>\n",
+    "shortDescription": "<p>MDL Members save on Botox with Dr. B!! Special Offer at $12/per unit!&nbsp;</p><p>Our Botox package for women includes a recommended dosage of 40 units.&nbsp;<br /><br />Dr. B&#39;s normal price for botox is $13 per unit!&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -4115,7 +4005,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "Men's Botox Treatment w/ Dr. B",
-    "shortDescription": "<p>MDL Members save on Botox with Dr. B!! Special Offer at $12/per unit!&nbsp;</p>\n\n<p>Our Botox package for women includes a recommended dosage of 40 units.&nbsp;<br />\n<br />\nDr. B&#39;s normal price for botox is $13 per unit!&nbsp;</p>\n",
+    "shortDescription": "<p>MDL Members save on Botox with Dr. B!! Special Offer at $12/per unit!&nbsp;</p><p>Our Botox package for women includes a recommended dosage of 40 units.&nbsp;<br /><br />Dr. B&#39;s normal price for botox is $13 per unit!&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -4243,7 +4133,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "Buy 2 Voluma for Chin, get 3rd HALF OFF!! ",
-    "shortDescription": "<p>Special MDL Package:&nbsp;</p>\n\n<p>Buy two syringes of Juvederm Voluma XC ($1699), get third syringe for HALF OFF ($424.50)&nbsp;</p>\n\n<p>Voluma for chin/jawline defining&nbsp;</p>\n\n<p>Juvederm Voluma XC lasts up to two years.&nbsp;</p>\n",
+    "shortDescription": "<p>Special MDL Package:&nbsp;</p><p>Buy two syringes of Juvederm Voluma XC ($1699), get third syringe for HALF OFF ($424.50)&nbsp;</p><p>Voluma for chin/jawline defining&nbsp;</p><p>Juvederm Voluma XC lasts up to two years.&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -4371,7 +4261,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "GQ Package",
-    "shortDescription": "<p>Cheeks and Jawline Sculpting: BUY 4&nbsp;syrines of Juvederm Voluma get ONE FREE</p>\n\n<p>20 Units of Botox for Jawline lift&nbsp;</p>\n\n<p>Appointment is with Dr. B, Owner and Founder of California Cosmetics&nbsp;</p>\n\n<p>Skin Medica Skin Care Kit&nbsp;</p>\n\n<p>Brilliant Distinctions Members: Receive additional $150 off and $180 back toward future treatments!! (Applied at time of appointment)&nbsp;</p>\n\n<p>Call 855-977-1982 at least 24 hours after purchase to schedule your appointment!&nbsp;</p>\n",
+    "shortDescription": "<p>Cheeks and Jawline Sculpting: BUY 4&nbsp;syrines of Juvederm Voluma get ONE FREE</p><p>20 Units of Botox for Jawline lift&nbsp;</p><p>Appointment is with Dr. B, Owner and Founder of California Cosmetics&nbsp;</p><p>Skin Medica Skin Care Kit&nbsp;</p><p>Brilliant Distinctions Members: Receive additional $150 off and $180 back toward future treatments!! (Applied at time of appointment)&nbsp;</p><p>Call 855-977-1982 at least 24 hours after purchase to schedule your appointment!&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -4499,7 +4389,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "Lips and Smile Lines Touch Up Package",
-    "shortDescription": "<p>Includes: 1 syringe of Juvederm Ultra Plus XC - used in the lips and smile lines to add volume.&nbsp;<br />\n<br />\nThis package is perfect for someone who has already achieved their desired amount of volume in these areas, and this is a 4-6 month touch up in order to maintain this volume.&nbsp;</p>\n",
+    "shortDescription": "<p>Includes: 1 syringe of Juvederm Ultra Plus XC - used in the lips and smile lines to add volume.&nbsp;<br /><br />This package is perfect for someone who has already achieved their desired amount of volume in these areas, and this is a 4-6 month touch up in order to maintain this volume.&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -4627,7 +4517,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "48u Botox @ $9.50/unit!!",
-    "shortDescription": "<p>SPECIAL PRICE FOR THIS EPISODE ONLY!!&nbsp;<br />\n<br />\n48 Units of Botox at $9.50 per unit!&nbsp;<br />\nRegular price is $11-$13 per unit!&nbsp;</p>\n\n<p>&nbsp;</p>\n",
+    "shortDescription": "<p>SPECIAL PRICE FOR THIS EPISODE ONLY!!&nbsp;<br /><br />48 Units of Botox at $9.50 per unit!&nbsp;<br />Regular price is $11-$13 per unit!&nbsp;</p><p>&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -4755,7 +4645,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "NSNJ SPECIAL PRICE!!! Limited Quantity",
-    "shortDescription": "<p>Dr. B&#39;s famous non surgical nose job&nbsp;</p>\n\n<p>includes: 1 syringe of Juvederm Voluma XC&nbsp;</p>\n\n<p>2 sessions with Dr. B&nbsp;</p>\n\n<p>&nbsp;</p>\n",
+    "shortDescription": "<p>Dr. B&#39;s famous non surgical nose job&nbsp;</p><p>includes: 1 syringe of Juvederm Voluma XC&nbsp;</p><p>2 sessions with Dr. B&nbsp;</p><p>&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -4883,7 +4773,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "TruSculpt Flex Membership",
-    "shortDescription": "<p>STAY TONED ALL YEAR!</p>\n\n<p>12-Month Membership Commitment</p>\n\n<p>First deposit is paid, then monthly payments are automatically debited</p>\n\n<p>INCLUDES:&nbsp;</p>\n\n<p>- 2 areas treated at each session</p>\n\n<p>- 15 TruSculpt Sessions per year</p>\n\n<p>- 12 MIC/B12 injections (value $30 per shot)</p>\n\n<p>- Protein shake at every visit (value $8 per shake)&nbsp;</p>\n\n<p>- 4 Body Tight IV Therapy Treatments (value $299 per IV bag)</p>\n\n<p>- Botox add-on at any appointment for $9.50/unit (regularly $11/unit)</p>\n\n<p>_______________________________________________________-</p>\n\n<p>$3,000 DOWN + $450 per month thereafter&nbsp;</p>\n\n<p>TOTAL COST OF ANNUAL MEMBERSHIP $6,750.00</p>\n\n<p>&nbsp;</p>\n\n<p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p>\n\n<p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p>\n\n<p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p>\n\n<p>If no services are rendered, your funds will be returned.&nbsp;</p>\n\n<p>&nbsp;</p>\n",
+    "shortDescription": "<p>STAY TONED ALL YEAR!</p><p>12-Month Membership Commitment</p><p>First deposit is paid, then monthly payments are automatically debited</p><p>INCLUDES:&nbsp;</p><p>- 2 areas treated at each session</p><p>- 15 TruSculpt Sessions per year</p><p>- 12 MIC/B12 injections (value $30 per shot)</p><p>- Protein shake at every visit (value $8 per shake)&nbsp;</p><p>- 4 Body Tight IV Therapy Treatments (value $299 per IV bag)</p><p>- Botox add-on at any appointment for $9.50/unit (regularly $11/unit)</p><p>_______________________________________________________-</p><p>$3,000 DOWN + $450 per month thereafter&nbsp;</p><p>TOTAL COST OF ANNUAL MEMBERSHIP $6,750.00</p><p>&nbsp;</p><p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p><p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p><p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p><p>If no services are rendered, your funds will be returned.&nbsp;</p><p>&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -5011,7 +4901,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "TruSculpt Flex Couples Package",
-    "shortDescription": "<p>COUPLES PACKAGES INCLUDE:&nbsp;</p>\n\n<p>- 2 areas per person, per session</p>\n\n<p>- 4 treatment sessions per person</p>\n\n<p>- $4,500 TOTAL&nbsp;</p>\n\n<p>________________________________________</p>\n\n<p>- 2 areas per person, per session</p>\n\n<p>- 6 treatment sessions per person</p>\n\n<p>- $6,000 TOTAL&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p>\n\n<p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p>\n\n<p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p>\n\n<p>If no services are rendered, your funds will be returned.&nbsp;</p>\n",
+    "shortDescription": "<p>COUPLES PACKAGES INCLUDE:&nbsp;</p><p>- 2 areas per person, per session</p><p>- 4 treatment sessions per person</p><p>- $4,500 TOTAL&nbsp;</p><p>________________________________________</p><p>- 2 areas per person, per session</p><p>- 6 treatment sessions per person</p><p>- $6,000 TOTAL&nbsp;</p><p>&nbsp;</p><p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p><p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p><p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p><p>If no services are rendered, your funds will be returned.&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -5139,7 +5029,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "TruSculpt Flex Individual Package",
-    "shortDescription": "<p>Package Options:&nbsp;</p>\n\n<p>- 4 Treatment Sessions for 4 areas - $4800 (savings of $400)&nbsp;</p>\n\n<p>- 6 Treatment Sessions for 4 areas - $6600 (savings of $1200)&nbsp;</p>\n\n<p>Also included with this package:&nbsp;</p>\n\n<p>- Complimentary protein shake at each visit&nbsp;</p>\n\n<p>- MIC/B12 Injection at each visit&nbsp;</p>\n\n<p>- add-on Botox during your visit for $9.50/unit (regularly $11/unit)&nbsp;</p>\n\n<p>- add-on Body Tight IV Therapy or $99 (regularly $299)</p>\n\n<p>- add-on HydraFacial MD treatment for $149 (regularly $199)&nbsp;</p>\n\n<p>** Must mention any add-on requests at time of SCHEDULING appointments. We&#39;re sorry, last minute add-ons cannot be accomodated at time of appointment if staff was not notified during scheudling of appointment.&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p>\n\n<p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p>\n\n<p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p>\n\n<p>If no services are rendered, your funds will be returned.&nbsp;</p>\n",
+    "shortDescription": "<p>Package Options:&nbsp;</p><p>- 4 Treatment Sessions for 4 areas - $4800 (savings of $400)&nbsp;</p><p>- 6 Treatment Sessions for 4 areas - $6600 (savings of $1200)&nbsp;</p><p>Also included with this package:&nbsp;</p><p>- Complimentary protein shake at each visit&nbsp;</p><p>- MIC/B12 Injection at each visit&nbsp;</p><p>- add-on Botox during your visit for $9.50/unit (regularly $11/unit)&nbsp;</p><p>- add-on Body Tight IV Therapy or $99 (regularly $299)</p><p>- add-on HydraFacial MD treatment for $149 (regularly $199)&nbsp;</p><p>** Must mention any add-on requests at time of SCHEDULING appointments. We&#39;re sorry, last minute add-ons cannot be accomodated at time of appointment if staff was not notified during scheudling of appointment.&nbsp;</p><p>&nbsp;</p><p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p><p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p><p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p><p>If no services are rendered, your funds will be returned.&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -5267,7 +5157,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "My Bloody Valentine PRP package",
-    "shortDescription": "<p>INCLUDES:&nbsp;</p>\n\n<p>Calfornia Cosmetis PRP (Platelet Rich Plasma) Facial&nbsp;</p>\n\n<p>Skin Medica TNS Post Microneedling Treatment&nbsp;</p>\n\n<p>$900 (value of $1300) - savings of $400</p>\n\n<p>&nbsp;</p>\n\n<p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p>\n\n<p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p>\n\n<p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p>\n\n<p>If no services are rendered, your funds will be returned.&nbsp;</p>\n",
+    "shortDescription": "<p>INCLUDES:&nbsp;</p><p>Calfornia Cosmetis PRP (Platelet Rich Plasma) Facial&nbsp;</p><p>Skin Medica TNS Post Microneedling Treatment&nbsp;</p><p>$900 (value of $1300) - savings of $400</p><p>&nbsp;</p><p>Please be advised that all services purchased today are contingent upon a good faith medical examination by one of our physicians for the purpose of medical clearance.&nbsp;</p><p>The dollar amount of your purchase will go toward your relevant treatment. Please be aware that after face to face consultation is completed, a different treatment may be recommended by our injector.&nbsp;</p><p>If you are found to not be a candidate for any services, your purchases will be refunded.&nbsp;</p><p>If no services are rendered, your funds will be returned.&nbsp;</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -5395,7 +5285,7 @@ let ProductMockData = """
     "parentGroupedProductId": 0,
     "visibleIndividually": false,
     "name": "Facial Sculpting with Kybella",
-    "shortDescription": "<p>Kybella is the first and only FDA approved injectable treatment that eliminates stubborn neck fat by pharmacologically destroying fat cells and giving you the sculpted shape you want.&nbsp;Once destroyed, the fat cells do not return. Say goodbye to that double chin forever!</p>\n\n<p>&nbsp;</p>\n\n<h3><strong>Features:</strong></h3>\n\n<ul>\n\t<li>Removes stubborn neck fat</li>\n\t<li>Injection process time, 10 to 15 minutes</li>\n\t<li>Pain level varies for each person; mild</li>\n\t<li>Long lasting results</li>\n\t<li>FDA approved</li>\n\t<li>Noticeable changes take 2 to 4 sessions</li>\n</ul>\n\n<ul>\n</ul>\n\n<h3><strong>Package Specials:</strong></h3>\n\n<p>💉1 treatment (2 vials) $899</p>\n\n<p>&nbsp; &nbsp;&nbsp;✨Savings&nbsp;&nbsp;$301</p>\n\n<ul>\n\t<li>\n\t<ul>\n\t</ul>\n\t</li>\n</ul>\n\n<p>💉2 treatments (4 vials) $1599</p>\n\n<p>&nbsp; &nbsp;&nbsp;✨Savings&nbsp;$801</p>\n\n<ul>\n\t<li>\n\t<ul>\n\t</ul>\n\t</li>\n</ul>\n\n<p>💉3 treatments (6 vials) $2,399</p>\n\n<p>&nbsp; &nbsp; ✨Savings&nbsp;$1,201</p>\n\n<ul>\n\t<li>\n\t<ul>\n\t</ul>\n\t</li>\n</ul>\n\n<p>💉4 treatments (8 vials) $ 2,999</p>\n\n<p>&nbsp; &nbsp;&nbsp;✨Savings&nbsp;&nbsp;$1,801</p>\n\n<ul>\n\t<li>\n\t<ul>\n\t</ul>\n\t</li>\n</ul>\n\n<p>💉6 treatments (12 vials) $4,600</p>\n\n<p>&nbsp; &nbsp;&nbsp;✨Savings $2,200</p>\n",
+    "shortDescription": "<p>Kybella is the first and only FDA approved injectable treatment that eliminates stubborn neck fat by pharmacologically destroying fat cells and giving you the sculpted shape you want.&nbsp;Once destroyed, the fat cells do not return. Say goodbye to that double chin forever!</p><p>&nbsp;</p><h3><strong>Features:</strong></h3><ul><li>Removes stubborn neck fat</li><li>Injection process time, 10 to 15 minutes</li><li>Pain level varies for each person; mild</li><li>Long lasting results</li><li>FDA approved</li><li>Noticeable changes take 2 to 4 sessions</li></ul><ul></ul><h3><strong>Package Specials:</strong></h3><p>💉1 treatment (2 vials) $899</p><p>&nbsp; &nbsp;&nbsp;✨Savings&nbsp;&nbsp;$301</p><ul><li><ul></ul></li></ul><p>💉2 treatments (4 vials) $1599</p><p>&nbsp; &nbsp;&nbsp;✨Savings&nbsp;$801</p><ul><li><ul></ul></li></ul><p>💉3 treatments (6 vials) $2,399</p><p>&nbsp; &nbsp; ✨Savings&nbsp;$1,201</p><ul><li><ul></ul></li></ul><p>💉4 treatments (8 vials) $ 2,999</p><p>&nbsp; &nbsp;&nbsp;✨Savings&nbsp;&nbsp;$1,801</p><ul><li><ul></ul></li></ul><p>💉6 treatments (12 vials) $4,600</p><p>&nbsp; &nbsp;&nbsp;✨Savings $2,200</p>",
     "fullDescription": "",
     "adminComment": null,
     "productTemplateId": 0,
@@ -5504,4 +5394,4 @@ let ProductMockData = """
     "commissionFlatValue": 0.0000,
     "id": 723
 }]
-""".data(using: .utf8)!
+""".replacingOccurrences(of: "", with: "").replacingOccurrences(of: "", with: "").data(using: .utf8)!

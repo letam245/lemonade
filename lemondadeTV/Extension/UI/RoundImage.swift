@@ -51,6 +51,14 @@ class RoundImage: UIImageView {
             return UIColor(cgColor: color)
         }
     }
+    
+    @IBInspectable var cornersRadius: CGFloat {
+        get {layer.cornerRadius}
+        set {
+            layer.masksToBounds = true
+            layer.cornerRadius = newValue
+        }
+    }
 
 
 }
