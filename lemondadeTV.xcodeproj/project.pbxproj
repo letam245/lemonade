@@ -1,0 +1,529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8458952DECB9838793573158 /* Pods_lemondadeTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B811A30F689C545D0EAE27 /* Pods_lemondadeTV.framework */; };
+		B31002F9250ED47800DB6D12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31002F8250ED47800DB6D12 /* AppDelegate.swift */; };
+		B31002FB250ED47800DB6D12 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31002FA250ED47800DB6D12 /* SceneDelegate.swift */; };
+		B3100300250ED47800DB6D12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B31002FE250ED47800DB6D12 /* Main.storyboard */; };
+		B3100302250ED47A00DB6D12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3100301250ED47A00DB6D12 /* Assets.xcassets */; };
+		B3100305250ED47A00DB6D12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3100303250ED47A00DB6D12 /* LaunchScreen.storyboard */; };
+		B3100314250EEDF800DB6D12 /* BranchCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3100312250EEDF800DB6D12 /* BranchCellCollectionViewCell.swift */; };
+		B3100315250EEDF800DB6D12 /* BranchCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3100313250EEDF800DB6D12 /* BranchCellCollectionViewCell.xib */; };
+		B310031A250EEEEA00DB6D12 /* RoundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3100319250EEEEA00DB6D12 /* RoundImage.swift */; };
+		B310031C250EF43800DB6D12 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B310031B250EF43800DB6D12 /* CustomButton.swift */; };
+		B310031E250F238200DB6D12 /* ApplicationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B310031D250F238200DB6D12 /* ApplicationData.swift */; };
+		B3100320250F256C00DB6D12 /* BranchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B310031F250F256C00DB6D12 /* BranchData.swift */; };
+		B3100322250F25CC00DB6D12 /* ProductData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3100321250F25CC00DB6D12 /* ProductData.swift */; };
+		B3100326250F34EC00DB6D12 /* BranchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3100325250F34EC00DB6D12 /* BranchesViewController.swift */; };
+		B3100329250F431D00DB6D12 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3100328250F431D00DB6D12 /* ColorHelper.swift */; };
+		B310032B250F567500DB6D12 /* ResponsiveCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B310032A250F567500DB6D12 /* ResponsiveCollectionView.swift */; };
+		B3A793FC2510BB5C00895CAE /* ProductPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A793FB2510BB5C00895CAE /* ProductPageViewController.swift */; };
+		B3A793FE2510BBFA00895CAE /* GuidelineModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A793FD2510BBFA00895CAE /* GuidelineModalViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		66B811A30F689C545D0EAE27 /* Pods_lemondadeTV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lemondadeTV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B31002F5250ED47800DB6D12 /* lemondadeTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lemondadeTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B31002F8250ED47800DB6D12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B31002FA250ED47800DB6D12 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B31002FF250ED47800DB6D12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B3100301250ED47A00DB6D12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B3100304250ED47A00DB6D12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B3100306250ED47A00DB6D12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3100312250EEDF800DB6D12 /* BranchCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		B3100313250EEDF800DB6D12 /* BranchCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BranchCellCollectionViewCell.xib; sourceTree = "<group>"; };
+		B3100319250EEEEA00DB6D12 /* RoundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImage.swift; sourceTree = "<group>"; };
+		B310031B250EF43800DB6D12 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		B310031D250F238200DB6D12 /* ApplicationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationData.swift; sourceTree = "<group>"; };
+		B310031F250F256C00DB6D12 /* BranchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchData.swift; sourceTree = "<group>"; };
+		B3100321250F25CC00DB6D12 /* ProductData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductData.swift; sourceTree = "<group>"; };
+		B3100325250F34EC00DB6D12 /* BranchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesViewController.swift; sourceTree = "<group>"; };
+		B3100328250F431D00DB6D12 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
+		B310032A250F567500DB6D12 /* ResponsiveCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsiveCollectionView.swift; sourceTree = "<group>"; };
+		B3A793FB2510BB5C00895CAE /* ProductPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPageViewController.swift; sourceTree = "<group>"; };
+		B3A793FD2510BBFA00895CAE /* GuidelineModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidelineModalViewController.swift; sourceTree = "<group>"; };
+		CEF19DD3C36B40F5875A78C1 /* Pods-lemondadeTV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lemondadeTV.debug.xcconfig"; path = "Target Support Files/Pods-lemondadeTV/Pods-lemondadeTV.debug.xcconfig"; sourceTree = "<group>"; };
+		CF0E76554DBEC5CA8A79B10C /* Pods-lemondadeTV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lemondadeTV.release.xcconfig"; path = "Target Support Files/Pods-lemondadeTV/Pods-lemondadeTV.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B31002F2250ED47800DB6D12 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8458952DECB9838793573158 /* Pods_lemondadeTV.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1608ABEECC834A3F09BE8FA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				66B811A30F689C545D0EAE27 /* Pods_lemondadeTV.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		43549FDA264C31763C37D552 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CEF19DD3C36B40F5875A78C1 /* Pods-lemondadeTV.debug.xcconfig */,
+				CF0E76554DBEC5CA8A79B10C /* Pods-lemondadeTV.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B31002EC250ED47800DB6D12 = {
+			isa = PBXGroup;
+			children = (
+				B31002F7250ED47800DB6D12 /* lemondadeTV */,
+				B31002F6250ED47800DB6D12 /* Products */,
+				43549FDA264C31763C37D552 /* Pods */,
+				1608ABEECC834A3F09BE8FA4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B31002F6250ED47800DB6D12 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B31002F5250ED47800DB6D12 /* lemondadeTV.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B31002F7250ED47800DB6D12 /* lemondadeTV */ = {
+			isa = PBXGroup;
+			children = (
+				B3100327250F430800DB6D12 /* Utils */,
+				B3100316250EEE8D00DB6D12 /* Extension */,
+				B310030E250ED59100DB6D12 /* Controllers */,
+				B310030D250ED58900DB6D12 /* Views */,
+				B310030C250ED57E00DB6D12 /* Model */,
+				B3100301250ED47A00DB6D12 /* Assets.xcassets */,
+				B3100303250ED47A00DB6D12 /* LaunchScreen.storyboard */,
+				B3100306250ED47A00DB6D12 /* Info.plist */,
+			);
+			path = lemondadeTV;
+			sourceTree = "<group>";
+		};
+		B310030C250ED57E00DB6D12 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B310031D250F238200DB6D12 /* ApplicationData.swift */,
+				B310031F250F256C00DB6D12 /* BranchData.swift */,
+				B3100321250F25CC00DB6D12 /* ProductData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B310030D250ED58900DB6D12 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B310030F250EEBB900DB6D12 /* Components */,
+				B31002FE250ED47800DB6D12 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B310030E250ED59100DB6D12 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B31002F8250ED47800DB6D12 /* AppDelegate.swift */,
+				B31002FA250ED47800DB6D12 /* SceneDelegate.swift */,
+				B3100325250F34EC00DB6D12 /* BranchesViewController.swift */,
+				B3A793FB2510BB5C00895CAE /* ProductPageViewController.swift */,
+				B3A793FD2510BBFA00895CAE /* GuidelineModalViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B310030F250EEBB900DB6D12 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B3100311250EEBDE00DB6D12 /* productDetail */,
+				B3100310250EEBD000DB6D12 /* branchList */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B3100310250EEBD000DB6D12 /* branchList */ = {
+			isa = PBXGroup;
+			children = (
+				B3100312250EEDF800DB6D12 /* BranchCellCollectionViewCell.swift */,
+				B3100313250EEDF800DB6D12 /* BranchCellCollectionViewCell.xib */,
+			);
+			path = branchList;
+			sourceTree = "<group>";
+		};
+		B3100311250EEBDE00DB6D12 /* productDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = productDetail;
+			sourceTree = "<group>";
+		};
+		B3100316250EEE8D00DB6D12 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B3100317250EEE9900DB6D12 /* UI */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		B3100317250EEE9900DB6D12 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B3100319250EEEEA00DB6D12 /* RoundImage.swift */,
+				B310031B250EF43800DB6D12 /* CustomButton.swift */,
+				B310032A250F567500DB6D12 /* ResponsiveCollectionView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		B3100327250F430800DB6D12 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B3100328250F431D00DB6D12 /* ColorHelper.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B31002F4250ED47800DB6D12 /* lemondadeTV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3100309250ED47A00DB6D12 /* Build configuration list for PBXNativeTarget "lemondadeTV" */;
+			buildPhases = (
+				17570DF8F07BC3B3FBE72E4E /* [CP] Check Pods Manifest.lock */,
+				B31002F1250ED47800DB6D12 /* Sources */,
+				B31002F2250ED47800DB6D12 /* Frameworks */,
+				B31002F3250ED47800DB6D12 /* Resources */,
+				33E9809E13C2AA63BBAE0F8C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = lemondadeTV;
+			productName = lemondadeTV;
+			productReference = B31002F5250ED47800DB6D12 /* lemondadeTV.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B31002ED250ED47800DB6D12 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "Tammy Le";
+				TargetAttributes = {
+					B31002F4250ED47800DB6D12 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = B31002F0250ED47800DB6D12 /* Build configuration list for PBXProject "lemondadeTV" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B31002EC250ED47800DB6D12;
+			productRefGroup = B31002F6250ED47800DB6D12 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B31002F4250ED47800DB6D12 /* lemondadeTV */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B31002F3250ED47800DB6D12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3100315250EEDF800DB6D12 /* BranchCellCollectionViewCell.xib in Resources */,
+				B3100305250ED47A00DB6D12 /* LaunchScreen.storyboard in Resources */,
+				B3100302250ED47A00DB6D12 /* Assets.xcassets in Resources */,
+				B3100300250ED47800DB6D12 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		17570DF8F07BC3B3FBE72E4E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lemondadeTV-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		33E9809E13C2AA63BBAE0F8C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-lemondadeTV/Pods-lemondadeTV-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-lemondadeTV/Pods-lemondadeTV-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lemondadeTV/Pods-lemondadeTV-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B31002F1250ED47800DB6D12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3100326250F34EC00DB6D12 /* BranchesViewController.swift in Sources */,
+				B3100329250F431D00DB6D12 /* ColorHelper.swift in Sources */,
+				B310031A250EEEEA00DB6D12 /* RoundImage.swift in Sources */,
+				B3A793FC2510BB5C00895CAE /* ProductPageViewController.swift in Sources */,
+				B3100322250F25CC00DB6D12 /* ProductData.swift in Sources */,
+				B310031C250EF43800DB6D12 /* CustomButton.swift in Sources */,
+				B3100320250F256C00DB6D12 /* BranchData.swift in Sources */,
+				B31002F9250ED47800DB6D12 /* AppDelegate.swift in Sources */,
+				B310032B250F567500DB6D12 /* ResponsiveCollectionView.swift in Sources */,
+				B310031E250F238200DB6D12 /* ApplicationData.swift in Sources */,
+				B3A793FE2510BBFA00895CAE /* GuidelineModalViewController.swift in Sources */,
+				B3100314250EEDF800DB6D12 /* BranchCellCollectionViewCell.swift in Sources */,
+				B31002FB250ED47800DB6D12 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B31002FE250ED47800DB6D12 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B31002FF250ED47800DB6D12 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B3100303250ED47A00DB6D12 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B3100304250ED47A00DB6D12 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B3100307250ED47A00DB6D12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B3100308250ED47A00DB6D12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B310030A250ED47A00DB6D12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEF19DD3C36B40F5875A78C1 /* Pods-lemondadeTV.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X5C9UMWMU5;
+				INFOPLIST_FILE = lemondadeTV/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tammylephillips.lemondadeTV;
+				PRODUCT_NAME = lemondadeTV;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B310030B250ED47A00DB6D12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF0E76554DBEC5CA8A79B10C /* Pods-lemondadeTV.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X5C9UMWMU5;
+				INFOPLIST_FILE = lemondadeTV/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tammylephillips.lemondadeTV;
+				PRODUCT_NAME = lemondadeTV;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B31002F0250ED47800DB6D12 /* Build configuration list for PBXProject "lemondadeTV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3100307250ED47A00DB6D12 /* Debug */,
+				B3100308250ED47A00DB6D12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B3100309250ED47A00DB6D12 /* Build configuration list for PBXNativeTarget "lemondadeTV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B310030A250ED47A00DB6D12 /* Debug */,
+				B310030B250ED47A00DB6D12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B31002ED250ED47800DB6D12 /* Project object */;
+}
