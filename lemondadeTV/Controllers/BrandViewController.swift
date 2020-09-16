@@ -33,7 +33,6 @@ class BrandViewController: UIViewController {
     
     func fetchBranches() {
         do {
-            
             let branches = try JSONDecoder().decode([Brand].self, from: BrandMockData)
             brandList = branches
             brandCollectionView.reloadData()
