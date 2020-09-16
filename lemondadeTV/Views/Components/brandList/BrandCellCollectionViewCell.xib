@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="BranchCell" id="gTV-IL-0wX" customClass="BranchCellCollectionViewCell" customModule="lemondadeTV" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="BranchCell" id="gTV-IL-0wX" customClass="BrandCellCollectionViewCell" customModule="lemondadeTV" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="173" height="210"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -23,7 +23,7 @@
                                 <rect key="frame" x="51.5" y="17" width="70" height="70"/>
                                 <color key="backgroundColor" red="0.29767078159999999" green="0.59657680989999995" blue="0.54901766780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="KcE-Ez-fyR"/>
+                                    <constraint firstAttribute="height" constant="70" id="XgK-fc-ryx"/>
                                     <constraint firstAttribute="width" secondItem="0qa-tS-OVA" secondAttribute="height" id="vAX-JH-ACD"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>

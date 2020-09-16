@@ -8,34 +8,35 @@
 
 import UIKit
 
-class BranchesViewController: UIViewController {
+class BrandViewController: UIViewController {
 
-    @IBOutlet weak var branchesCollectionView: UICollectionView!
+    @IBOutlet weak var brandCollectionView: UICollectionView!
     
-    var branchesList = [Brand]()
+    var brandList = [Brand]()
     var selectedBrand : Brand?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        branchesCollectionView.delegate = self
-        branchesCollectionView.dataSource = self
+        brandCollectionView.delegate = self
+        brandCollectionView.dataSource = self
         
-        branchesCollectionView.register(UINib(nibName: "BranchCellCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "BranchCell")
+        brandCollectionView.register(UINib(nibName: "BrandCellCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "BranchCell")
         
     }
+    
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         fetchBranches()
     }
     
-    
     func fetchBranches() {
         do {
             
             let branches = try JSONDecoder().decode([Brand].self, from: BrandMockData)
-            branchesList = branches
-            branchesCollectionView.reloadData()
+            brandList = branches
+            brandCollectionView.reloadData()
         } catch {
             print(error)
         }
@@ -47,24 +48,32 @@ class BranchesViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let productPageVC = segue.destination as! ProductPageViewController
-        
-        productPageVC.selectBrand = selectedBrand
-
+        switch segue.identifier {
+        case "goToProductPage":
+            let productPageVC = segue.destination as! ProductPageViewController
+            productPageVC.selectBrand = selectedBrand
+          case "goToSearchPage":
+            let searchPageVC = segue.destination as! BrandSearchViewController
+            searchPageVC.brandList = brandList
+        default:
+            break
+        }
     }
     
-
+    @IBAction func searchIconClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: "goToSearchPage", sender: self)
+    }
 }
 
-extension BranchesViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension BrandViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return branchesList.count
+        return brandList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let brandCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BranchCell", for: indexPath) as! BranchCellCollectionViewCell
-        let brand = branchesList[indexPath.row]
+        let brandCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BranchCell", for: indexPath) as! BrandCellCollectionViewCell
+        let brand = brandList[indexPath.row]
         brandCell.brandVCdelegate = self
         brandCell.brand = brand
         brandCell.actionButton.tag = indexPath.row
@@ -77,7 +86,7 @@ extension BranchesViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = branchesCollectionView.calculateWith(cellNumbers: 3)
+        let size = brandCollectionView.calculateWith(cellNumbers: 3)
 
         return CGSize(width: size, height: size * 1.75)
     }

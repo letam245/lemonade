@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class GuidelineModalViewController: UIViewController, UITextViewDelegate {
+class GuidelineModalViewController: UIViewController {
 
     @IBOutlet weak var brandName: UILabel!
     @IBOutlet weak var commentText: UITextView!
@@ -59,4 +59,20 @@ class GuidelineModalViewController: UIViewController, UITextViewDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension GuidelineModalViewController : UITextViewDelegate {
+    func textViewDidBeginEditing (_ textView: UITextView) {
+        if  commentText.isFirstResponder {
+            commentText.text = nil
+            commentText.textColor = .white
+        }
+    }
+    
+    func textViewDidEndEditing (_ textView: UITextView) {
+        if commentText.text.isEmpty || commentText.text == "" {
+            commentText.textColor = .lightGray
+            commentText.text = "Type message here..."
+        }
+    }
 }

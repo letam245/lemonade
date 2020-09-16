@@ -8,14 +8,16 @@
 
 import UIKit
 
-class BranchCellCollectionViewCell: UICollectionViewCell {
+class BrandCellCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var branchAvatar: RoundImage!
     @IBOutlet weak var branchName: UILabel!
     @IBOutlet weak var actionButton: CustomButton!
     
-    var brandVCdelegate : BranchesViewController?
+    var brandVCdelegate : BrandViewController?
+    var searchVCdelegate: BrandSearchViewController?
     var brand: Brand?
+    var fromSearch: Bool? = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,9 +46,12 @@ class BranchCellCollectionViewCell: UICollectionViewCell {
         actionButton.setTitle(title, for: .normal)
         actionButton.setTitleColor(titleColor, for: .normal)
     }
+    
+
 
     @IBAction func handleApplyClicked(_ sender: Any) {
         guard let brand = brand else {return}
         brandVCdelegate?.goToProductPage(brand)
+        if fromSearch ?? false {searchVCdelegate?.goToProductPage(brand)}
     }
 }

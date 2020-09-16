@@ -10,7 +10,7 @@
         <!--Lemondade-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="BranchesViewController" id="BYZ-38-t0r" customClass="BranchesViewController" customModule="lemondadeTV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BranchesViewController" id="BYZ-38-t0r" customClass="BrandViewController" customModule="lemondadeTV" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,7 +31,12 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="magnifyingglass" catalog="system"/>
+                                        <state key="normal" image="magnifyingglass" catalog="system">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="searchIconClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="amZ-gK-8fG"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -74,8 +79,9 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="R65-TS-qI6"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="branchesCollectionView" destination="KOi-LZ-DHQ" id="ERW-2L-wSf"/>
+                        <outlet property="brandCollectionView" destination="KOi-LZ-DHQ" id="ERW-2L-wSf"/>
                         <segue destination="QSJ-3Y-kOK" kind="show" identifier="goToProductPage" id="4IC-vy-zCI"/>
+                        <segue destination="b4V-j9-I3J" kind="show" identifier="goToSearchPage" id="7LE-JB-7cW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -308,7 +314,56 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0W4-tB-Mlj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2904.375" y="137.32394366197184"/>
+            <point key="canvasLocation" x="3008" y="540"/>
+        </scene>
+        <!--Lemonade-->
+        <scene sceneID="vBL-hA-xHl">
+            <objects>
+                <viewController modalPresentationStyle="overCurrentContext" id="b4V-j9-I3J" customClass="BrandSearchViewController" customModule="lemondadeTV" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gzb-sL-RgD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search Brand" translatesAutoresizingMaskIntoConstraints="NO" id="OQz-07-KNf">
+                                <rect key="frame" x="16" y="0.0" width="288" height="47"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UTg-Li-yJ4">
+                                <rect key="frame" x="16" y="47" width="288" height="477"/>
+                                <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ucS-FU-vsi">
+                                    <size key="itemSize" width="184" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="UTg-Li-yJ4" firstAttribute="centerX" secondItem="gzb-sL-RgD" secondAttribute="centerX" id="2G8-L3-RQI"/>
+                            <constraint firstItem="OQz-07-KNf" firstAttribute="height" secondItem="gzb-sL-RgD" secondAttribute="height" multiplier="0.09" id="8MO-wU-Uy6"/>
+                            <constraint firstItem="UTg-Li-yJ4" firstAttribute="top" secondItem="OQz-07-KNf" secondAttribute="bottom" id="GGb-yC-9O3"/>
+                            <constraint firstItem="OQz-07-KNf" firstAttribute="width" secondItem="gzb-sL-RgD" secondAttribute="width" multiplier="0.9" id="ScY-RP-NqH"/>
+                            <constraint firstAttribute="bottom" secondItem="UTg-Li-yJ4" secondAttribute="bottom" id="pVu-gA-asu"/>
+                            <constraint firstItem="OQz-07-KNf" firstAttribute="top" secondItem="65q-mN-CSo" secondAttribute="top" id="qMy-Eu-pT0"/>
+                            <constraint firstItem="UTg-Li-yJ4" firstAttribute="width" secondItem="gzb-sL-RgD" secondAttribute="width" multiplier="0.9" id="v5c-mU-E9w"/>
+                            <constraint firstItem="OQz-07-KNf" firstAttribute="centerX" secondItem="gzb-sL-RgD" secondAttribute="centerX" id="wG5-rf-vNN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="65q-mN-CSo"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Lemonade" id="dXT-Ej-2Zb"/>
+                    <connections>
+                        <outlet property="brandSearchBar" destination="OQz-07-KNf" id="nuA-fw-n0a"/>
+                        <outlet property="brandSearchCollectionView" destination="UTg-Li-yJ4" id="4a5-ZK-Pis"/>
+                        <segue destination="QSJ-3Y-kOK" kind="show" identifier="goToProduct" id="6CB-DF-Bea"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hnV-Xj-zDF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3008" y="-349"/>
         </scene>
         <!--Guideline Modal View Controller-->
         <scene sceneID="jbU-xd-dF4">
@@ -325,7 +380,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="488"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eGk-28-0mz" userLabel="ContentView">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="236.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="353.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1wr-s2-mW9" userLabel="topContentView">
                                                         <rect key="frame" x="16" y="10" width="288" height="28"/>
@@ -378,11 +433,26 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJr-rC-fhM">
-                                                        <rect key="frame" x="16" y="203.5" width="288" height="33"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Type message here" translatesAutoresizingMaskIntoConstraints="NO" id="rJr-rC-fhM">
+                                                        <rect key="frame" x="16" y="203.5" width="288" height="150"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="150" id="tmE-3Z-sNL"/>
+                                                        </constraints>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -406,7 +476,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBu-uC-0B7" customClass="CustomButton" customModule="lemondadeTV" customModuleProvider="target">
-                                                <rect key="frame" x="232" y="256.5" width="72" height="30"/>
+                                                <rect key="frame" x="232" y="373.5" width="72" height="30"/>
                                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                                 <state key="normal" title="Apply">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -468,7 +538,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wCa-oC-tBV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3654.375" y="137.32394366197184"/>
+            <point key="canvasLocation" x="3868" y="540"/>
         </scene>
         <!--LemonadeTV-->
         <scene sceneID="TK7-yC-s1A">
@@ -495,6 +565,9 @@
             <point key="canvasLocation" x="1136.25" y="138.38028169014083"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="6CB-DF-Bea"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
