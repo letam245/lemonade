@@ -23,6 +23,7 @@
 		B3100326250F34EC00DB6D12 /* BrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3100325250F34EC00DB6D12 /* BrandViewController.swift */; };
 		B3100329250F431D00DB6D12 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3100328250F431D00DB6D12 /* ColorHelper.swift */; };
 		B310032B250F567500DB6D12 /* ResponsiveCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B310032A250F567500DB6D12 /* ResponsiveCollectionView.swift */; };
+		B35455642521579D0021D618 /* BrandApplyBtnHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35455632521579D0021D618 /* BrandApplyBtnHelper.swift */; };
 		B3A793FC2510BB5C00895CAE /* ProductPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A793FB2510BB5C00895CAE /* ProductPageViewController.swift */; };
 		B3A793FE2510BBFA00895CAE /* GuidelineModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A793FD2510BBFA00895CAE /* GuidelineModalViewController.swift */; };
 		B3A79400251143BF00895CAE /* LayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A793FF251143BF00895CAE /* LayoutHelper.swift */; };
@@ -51,6 +52,7 @@
 		B3100325250F34EC00DB6D12 /* BrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandViewController.swift; sourceTree = "<group>"; };
 		B3100328250F431D00DB6D12 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		B310032A250F567500DB6D12 /* ResponsiveCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsiveCollectionView.swift; sourceTree = "<group>"; };
+		B35455632521579D0021D618 /* BrandApplyBtnHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandApplyBtnHelper.swift; sourceTree = "<group>"; };
 		B3A793FB2510BB5C00895CAE /* ProductPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPageViewController.swift; sourceTree = "<group>"; };
 		B3A793FD2510BBFA00895CAE /* GuidelineModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidelineModalViewController.swift; sourceTree = "<group>"; };
 		B3A793FF251143BF00895CAE /* LayoutHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutHelper.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			children = (
 				B3100328250F431D00DB6D12 /* ColorHelper.swift */,
 				B3A793FF251143BF00895CAE /* LayoutHelper.swift */,
+				B35455632521579D0021D618 /* BrandApplyBtnHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				B310032B250F567500DB6D12 /* ResponsiveCollectionView.swift in Sources */,
 				B310031E250F238200DB6D12 /* ApplicationData.swift in Sources */,
 				B3A794122511C71600895CAE /* CustomTextView.swift in Sources */,
+				B35455642521579D0021D618 /* BrandApplyBtnHelper.swift in Sources */,
 				B3A793FE2510BBFA00895CAE /* GuidelineModalViewController.swift in Sources */,
 				B3100314250EEDF800DB6D12 /* BrandCellCollectionViewCell.swift in Sources */,
 				B3A794072511452400895CAE /* ProductCell.swift in Sources */,

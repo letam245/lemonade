@@ -22,36 +22,27 @@ class BrandCellCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        let imageClicked = UITapGestureRecognizer(target: self, action: #selector(selectImageCliclked))
+        branchAvatar.isUserInteractionEnabled = true
+        branchAvatar.addGestureRecognizer(imageClicked)
+    }
+    
+    @objc func selectImageCliclked()
+    {
+        guard let brand = brand else {return}
+        brandVCdelegate?.goToProductPage(brand)
     }
     
     func updateBranchInfo(name: String, status: String, photo: String?) {
         branchName.text = name
         branchAvatar.sd_setImage(with: URL(string: photo ?? ""), placeholderImage: UIImage(named: "placeholder-profile"))
-        switch status {
-        case "Pending":
-            buttonStyle(color: ColorHelper.lemonadeColor("ldLightGray"), title: "Pending", titleColor: .darkGray)
-        case "Approved":
-            buttonStyle(color: ColorHelper.lemonadeColor("ldYellow"), title: "Approved", titleColor: .darkGray)
-        case "Denied":
-            buttonStyle(color: ColorHelper.lemonadeColor("ldRed"), title: "Denied", titleColor: .darkGray)
-        default:
-            buttonStyle(color: .clear, boderColor: ColorHelper.lemonadeColor("ldYellow"), title: "Apply")
-            break
-        }
+        BrandApplyBtnHelper.buttonCase(actionButton, status: status)
     }
-    
-    func buttonStyle(color: UIColor, boderColor: UIColor? = .clear, title: String, titleColor: UIColor? = .white) {
-        actionButton.backgroundColor = color
-        actionButton.borderColor = boderColor
-        actionButton.setTitle(title, for: .normal)
-        actionButton.setTitleColor(titleColor, for: .normal)
-    }
-    
 
 
     @IBAction func handleApplyClicked(_ sender: Any) {
         guard let brand = brand else {return}
-        brandVCdelegate?.goToProductPage(brand)
+        brandVCdelegate?.presentGuidelineModal(brand)
         if fromSearch ?? false {searchVCdelegate?.goToProductPage(brand)}
     }
 }

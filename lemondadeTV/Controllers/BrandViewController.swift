@@ -24,26 +24,40 @@ class BrandViewController: UIViewController {
         
     }
     
-
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        fetchBranches()
+        fetchBranches { (branches, error) in
+            guard let branches = branches else {return}
+            self.brandList = branches
+            DispatchQueue.main.async {
+                self.brandCollectionView.reloadData()
+           }
+        }
     }
     
-    func fetchBranches() {
-        do {
-            let branches = try JSONDecoder().decode([Brand].self, from: BrandMockData)
-            brandList = branches
-            brandCollectionView.reloadData()
-        } catch {
-            print(error)
+    func fetchBranches(completion: @escaping ([Brand]?, Error?) -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            do {
+                let branches = try JSONDecoder().decode([Brand].self, from: BrandMockData)
+                completion(branches, nil)
+            } catch {
+                completion(nil, error)
+            }
         }
+
     }
     
     func goToProductPage(_ brand: Brand) {
         selectedBrand = brand
         self.performSegue(withIdentifier: "goToProductPage", sender: self)
+    }
+    
+    func presentGuidelineModal(_ brand: Brand) {
+        let guideLineModal = storyboard?.instantiateViewController(withIdentifier: "guideLineModalVC") as! GuidelineModalViewController
+        
+        guideLineModal.brandVCDelegate = self
+        guideLineModal.brand = brand
+        present(guideLineModal, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -89,6 +103,5 @@ extension BrandViewController: UICollectionViewDataSource, UICollectionViewDeleg
 
         return CGSize(width: size, height: size * 1.75)
     }
-    
     
 }

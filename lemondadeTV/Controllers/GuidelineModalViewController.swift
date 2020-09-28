@@ -16,7 +16,8 @@ class GuidelineModalViewController: UIViewController {
     @IBOutlet weak var guidelineText: UILabel!
     @IBOutlet weak var modalTopContraints: NSLayoutConstraint!
     
-    var productDelegate : ProductPageViewController?
+    var productPageVCDelegate : ProductPageViewController?
+    var brandVCDelegate: BrandViewController?
     var brand: Brand?
     var serverURL = ""
     
@@ -26,7 +27,7 @@ class GuidelineModalViewController: UIViewController {
         commentText.delegate = self
         brandName.text = brand?.Name
 
-        modalTopContraints.constant = LayoutHelper.topBarHeight(productDelegate) + 80
+        modalTopContraints.constant = LayoutHelper.topBarHeight(productPageVCDelegate) + 80
 
     }
     

@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ProductCell: UITableViewCell {
 
+class ProductCell: UITableViewCell {
     @IBOutlet weak var productPhoto: RoundImage!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
@@ -21,7 +21,7 @@ class ProductCell: UITableViewCell {
         // Initialization code
     }
     
-    func updateProductDetail(photo: String?, name: String, price: Double, commision: String) {
+    func updateProductDetail(photo: String?, name: String, price: Double, commision: String?) {
         productPhoto.sd_setImage(with: URL(string: photo ?? ""), placeholderImage: UIImage(named: "placeholder-profile"))
         productName.text = name
         productPrice.text = "$\(String(format: "%.2f", price))"

@@ -303,6 +303,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="Tsc-cs-OtS"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="actionButton" destination="Y6O-Ip-CgF" id="Ekf-uA-JOy"/>
                         <outlet property="averageComission" destination="sbz-5N-Ah3" id="kwl-nH-DWC"/>
                         <outlet property="brandDescription" destination="ZZq-fM-ioq" id="FZD-pC-971"/>
                         <outlet property="brandName" destination="MiH-X9-kSo" id="7B1-OG-cZD"/>

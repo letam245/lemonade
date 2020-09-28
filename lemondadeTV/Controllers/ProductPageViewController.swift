@@ -17,6 +17,7 @@ class ProductPageViewController: UIViewController {
     @IBOutlet weak var brandName: UILabel!
     @IBOutlet weak var brandDescription: UILabel!
     @IBOutlet weak var productListTableView: UITableView!
+    @IBOutlet weak var actionButton: CustomButton!
     
     var selectBrand : Brand?
     var productList = [Product]()
@@ -31,7 +32,14 @@ class ProductPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        fetchProducts()
+        BrandApplyBtnHelper.buttonCase(actionButton, status: selectBrand?.ApplicationStatusCode ?? "")
+        fetchProducts { (products, error)  in
+            guard let products = products else {return}
+            self.productList = products
+            DispatchQueue.main.async {
+              self.productListTableView.reloadData()
+            }
+        }
     }
     
     func updateBrandInfo() {
@@ -43,20 +51,21 @@ class ProductPageViewController: UIViewController {
         connectionCount.text = "\(selectBrand?.SellerCount ?? 0)"
     }
     
-    func fetchProducts() {
-        do {
-            let products = try JSONDecoder().decode([Product].self, from: ProductMockData)
-            productList = products
-            productListTableView.reloadData()
-        } catch {
-            print(error)
+    func fetchProducts(completion: @escaping ([Product]?, Error?) -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            do {
+                let products = try JSONDecoder().decode([Product].self, from: ProductMockData)
+                completion(products, nil)
+            } catch {
+                completion(nil, error)
+            }
         }
     }
     
     func presentGuidelineModal() {
         let guideLineModal = storyboard?.instantiateViewController(withIdentifier: "guideLineModalVC") as! GuidelineModalViewController
         
-        guideLineModal.productDelegate = self
+        guideLineModal.productPageVCDelegate = self
         guideLineModal.brand = selectBrand
         present(guideLineModal, animated: true, completion: nil)
     }
