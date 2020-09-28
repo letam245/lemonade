@@ -33,11 +33,11 @@ class ProductPageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         BrandApplyBtnHelper.buttonCase(actionButton, status: selectBrand?.ApplicationStatusCode ?? "")
-        fetchProducts { (products, error)  in
-            guard let products = products else {return}
-            self.productList = products
+        
+        Service.shared.fetchProducts { (products, error)  in
             DispatchQueue.main.async {
-              self.productListTableView.reloadData()
+                if let products = products {self.productList = products}
+                self.productListTableView.reloadData()
             }
         }
     }
@@ -49,17 +49,6 @@ class ProductPageViewController: UIViewController {
         brandDescription.text = selectBrand?.Description
         averageComission.text = selectBrand?.CommissionRange
         connectionCount.text = "\(selectBrand?.SellerCount ?? 0)"
-    }
-    
-    func fetchProducts(completion: @escaping ([Product]?, Error?) -> Void) {
-        DispatchQueue.global(qos: .userInitiated).async {
-            do {
-                let products = try JSONDecoder().decode([Product].self, from: ProductMockData)
-                completion(products, nil)
-            } catch {
-                completion(nil, error)
-            }
-        }
     }
     
     func presentGuidelineModal() {

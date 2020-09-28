@@ -26,27 +26,15 @@ class BrandViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        fetchBranches { (branches, error) in
-            guard let branches = branches else {return}
-            self.brandList = branches
+
+        Service.shared.fetchBrands { (brands, error) in
             DispatchQueue.main.async {
-                self.brandCollectionView.reloadData()
-           }
-        }
-    }
-    
-    func fetchBranches(completion: @escaping ([Brand]?, Error?) -> Void) {
-        DispatchQueue.global(qos: .userInitiated).async {
-            do {
-                let branches = try JSONDecoder().decode([Brand].self, from: BrandMockData)
-                completion(branches, nil)
-            } catch {
-                completion(nil, error)
+              if let brands = brands {self.brandList = brands}
+              self.brandCollectionView.reloadData()
             }
         }
-
     }
-    
+        
     func goToProductPage(_ brand: Brand) {
         selectedBrand = brand
         self.performSegue(withIdentifier: "goToProductPage", sender: self)
