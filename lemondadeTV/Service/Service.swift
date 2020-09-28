@@ -34,7 +34,3 @@ class Service {
         }
     }
 }
-
-class Stack<T: Decodable> {
-    var items = [T]()
-}
